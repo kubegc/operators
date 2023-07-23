@@ -8,7 +8,7 @@ class KubernetesAnalyzer:
     def __init__(self) -> None:
         self.PVCList = {}
     
-    def getPVCList(self, url, token, config) -> None:
+    def getPVCList(self, url, token, config=None) -> None:
         pvc_list = []
         pvc_url = url + "/api/v1/persistentvolumeclaims"
         pvc_list_response = http_request.createRequest(url=pvc_url, token=token, method="GET", keep_json=False, config=config)[0]
