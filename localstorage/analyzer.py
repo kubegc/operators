@@ -19,6 +19,8 @@ class KubernetesAnalyzer:
             storage_class = pvc["spec"].get("storageClassName")
             volume_name = pvc["spec"].get("volumeName")
             accessMods = pvc["spec"].get("accessModes")
+            storage_request = pvc["spec"].get("resources").get("requests").get("storage")
+            #print(pvc)
 
             # Check if PVC has a StorageClass and is not bound to a PV
             if storage_class and not volume_name:
@@ -26,7 +28,8 @@ class KubernetesAnalyzer:
                     "name": pvc_name,
                     "namespace": namespace,
                     "storage_class": storage_class,
-                    "access_modes": accessMods
+                    "access_modes": accessMods,
+                    "storage_request":storage_request
                 })
         self.PVCList = pvc_list
 
