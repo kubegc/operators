@@ -1,12 +1,12 @@
 import time
 from kubernetes import client, config
-from creat_pv import creat_pv
+from create_pv import create_pv
 
 class PVCWatchHandler:
     def __init__(self,url,token):
         self.url=url
         self.token=token
-        self.creatPV = creat_pv(url,token)
+        self.createPV = create_pv(url,token)
 
     def DoAdded(self, pvc_object):
         pvc_list=[]
@@ -24,7 +24,9 @@ class PVCWatchHandler:
                 "access_modes": accessMods,
                 "storage_request":storage_request
             })
-        print(pvc_list)
+        #print(pvc_list)
+        self.createPV.get_pvc_info(pvc_list)
+        self.createPV.create_pv()
 
     def DoModified(self, pvc_object):
         print("PVC MODIFIED: ", pvc_object["metadata"]["name"])

@@ -6,7 +6,7 @@ __author__ = ('Tian Yu <yutian20@otcaix.iscas.ac.cn>',
 
 #pvc_info = [{'name': 'my-local-pvc', 'namespace': 'default', 'storage_class': 'local-storage', 'access_modes': ['ReadWriteOnce'], 'storage_request': '2Gi'}]
 
-class creat_pv:
+class create_pv:
     def __init__(self, url, token, config=None) -> None:
         self.url = url
         self.token = token
