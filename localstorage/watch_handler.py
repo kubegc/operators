@@ -1,6 +1,13 @@
+##
+# Copyright (2023, ) Institute of Software, Chinese Academy of Sciences
+##
+
 import time
 from kubernetes import client, config
 from create_pv import create_pv
+
+__author__ = ('AoLuo Zhang <zhangaoluo22@otcaix.iscas.ac.cn>',
+              'Heng Wu <wuheng@iscas.ac.cn>')
 
 class PVCWatchHandler:
     def __init__(self,url,token):

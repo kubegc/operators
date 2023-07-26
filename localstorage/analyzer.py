@@ -1,3 +1,7 @@
+##
+# Copyright (2023, ) Institute of Software, Chinese Academy of Sciences
+##
+
 import kubesys.http_request as http_request
 
 __author__ = ('AoLuo Zhang <zhangaoluo22@otcaix.iscas.ac.cn>',
@@ -50,9 +54,3 @@ class KubernetesAnalyzer:
                 "ststus": status
             })
         self.checkList=check_list
-
-
-        
-        
-    
-    

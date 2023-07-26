@@ -1,3 +1,7 @@
+##
+# Copyright (2023, ) Institute of Software, Chinese Academy of Sciences
+##
+
 import os.path
 import sys
 import yaml
@@ -7,7 +11,7 @@ from analyzer import KubernetesAnalyzer
 from create_pv import create_pv
 from watch_handler import PVCWatchHandler
 
-__author__ = ('Tian Yu <yutian20@otcaix.iscas.ac.cn>',
+__author__ = ('AoLuo Zhang <zhangaoluo22@otcaix.iscas.ac.cn>',
               'Heng Wu <wuheng@iscas.ac.cn>')
 
 file_path = 'D:/k8s_python/account.yaml'

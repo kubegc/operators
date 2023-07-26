@@ -1,3 +1,7 @@
+##
+# Copyright (2023, ) Institute of Software, Chinese Academy of Sciences
+##
+
 from kubesys.http_request import createRequest
 import json
 
