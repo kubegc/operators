@@ -5,6 +5,7 @@
 import time
 from kubernetes import client, config
 from create_pv import create_pv
+from delete_pv import delete_pv
 
 __author__ = ('AoLuo Zhang <zhangaoluo22@otcaix.iscas.ac.cn>',
               'Heng Wu <wuheng@iscas.ac.cn>')
@@ -40,4 +41,7 @@ class PVCWatchHandler:
 
     def DoDeleted(self, pvc_object):
         print("PVC DELETED: ", pvc_object["metadata"]["name"])
+        #clean unbound PV
+        deletePV = delete_pv(self.url,self.token)
+        deletePV.delete_pv(pvc_object["metadata"]["name"])
 

@@ -10,10 +10,12 @@ from kubesys.client import KubernetesClient
 from analyzer import KubernetesAnalyzer
 from create_pv import create_pv
 from watch_handler import PVCWatchHandler
+from delete_pv import delete_pv
 
 __author__ = ('AoLuo Zhang <zhangaoluo22@otcaix.iscas.ac.cn>',
               'Heng Wu <wuheng@iscas.ac.cn>')
 
+#kubernetes account
 file_path = 'D:/k8s_python/account.yaml'
 url=''
 token=''
@@ -42,6 +44,11 @@ def createPV(pvc_info) -> None:
     createPV.get_pvc_info(pvc_info)
     createPV.create_pv()
 
+#test delete
+def test_delete_pv(name) -> None:
+    deletePV = delete_pv(url,token)
+    deletePV.delete_pv(name)
+
 #watch pvc and create pv
 def start_watch(client, namespce) -> None:
     watcher_handler = PVCWatchHandler(url,token)
@@ -64,5 +71,4 @@ if __name__ == '__main__':
     start_watch(client=client,namespce="default")
 
     #createPV(getPVCList())
-
-    
+    #test_delete_pv("my-pv")
